@@ -11,7 +11,7 @@
 // Small heuristic penalties are then applied for things like hedge words (“maybe”, “let me check”), unsupported promises, escalation language, missing booking context, and overly complex messages.
 
 // to be honest i am not sure about how effective this logic would be but it is a good starting point and we can keep improving it based on the real world performance and feedback from the team.
-
+// with more time i would look into some tutorials and examples of confidence scoring in AI systems to see if there are any established best practices or techniques that I can apply here
 const HEDGE_WORDS = [
   "maybe",
   "perhaps",

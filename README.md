@@ -56,17 +56,21 @@ npm start
 GET http://localhost:3000/health
 ```
 
-## Pipeline Test Script
-Run the end-to-end pipeline tests:
+## Test
+Run the test using thunderclient/postman or just run the following in terminal:
 
 ```bash
-npm run test:pipeline
+curl -X POST http://localhost:3000/webhook/message \
+  -H "Content-Type: application/json" \
+  -d '{
+    "source": "whatsapp",
+    "guest_name": "Rahul Sharma",
+    "message": "Is the villa available from April 20 to 24? What is the rate for 2 adults?",
+    "timestamp": "2026-05-05T10:30:00Z",
+    "booking_ref": "NIS-2024-0891",
+    "property_id": "villa-b1"
+  }'
 ```
-
-This runs 3 assignment-style cases:
-- availability/pricing
-- post-sales check-in
-- complaint
 
 ## Current Confidence Scoring Logic
 Implemented in `src/services/confidence.js`.
@@ -94,15 +98,7 @@ Applied to reduce risk:
 - Security penalty: if `post_sales_checkin` and no `booking_ref`, but reply contains `wifi/password`: `-0.50`
 - Long/complex incoming message (`message_text.length > 250`): `-0.10`
 
-### 4. Caps
-- `special_request` capped at `0.84`
-- `general_enquiry` capped at `0.84`
-
-### 5. Finalization
-- Clamp to `[0, 1]`
-- Round to 2 decimals
-
-### 6. Action mapping
+### 4. Actions
 - If `query_type === complaint` -> `escalate`
 - Else if score `>= 0.85` -> `auto_send`
 - Else if score `>= 0.60` -> `agent_review`
