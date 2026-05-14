@@ -1,0 +1,26 @@
+[
+{
+  "source": "whatsapp",
+  "guest_name": "Rahul Sharma",
+  "message": "Is the villa available from April 20 to 24? What is the rate for 2 adults?",
+  "timestamp": "2026-05-05T10:30:00Z",
+  "booking_ref": "NIS-2024-0891",
+  "property_id": "villa-b1"
+},
+{
+  "source": "direct",
+  "guest_name": "Priya Menon",
+  "message": "Hi, we are arriving tomorrow. What time can we check in and what is the WiFi password?",
+  "timestamp": "2026-05-05T11:00:00Z",
+  "booking_ref": "NIS-2024-0912",
+  "property_id": "villa-b1"
+},
+{
+  "source": "airbnb",
+  "guest_name": "James Wright",
+  "message": "The AC in the master bedroom is not working at all. This is unacceptable.",
+  "timestamp": "2026-05-05T11:30:00Z",
+  "booking_ref": "NIS-2024-0944",
+  "property_id": "villa-b1"
+}
+]
